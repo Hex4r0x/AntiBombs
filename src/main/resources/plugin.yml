@@ -1,0 +1,6 @@
+name: AntiBombs
+version: '1.0-SNAPSHOT'
+main: com.hex4r0x.github.antiBombs.AntiBombs
+api-version: '1.21'
+authors: [ Hex4r0x ]
+website: https://github.com/Hex4r0x
