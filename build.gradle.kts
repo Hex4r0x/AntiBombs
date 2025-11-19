@@ -45,4 +45,3 @@ tasks.processResources {
         expand(props)
     }
 }
-

@@ -6,6 +6,7 @@ class AntiBombs : JavaPlugin() {
 
     override fun onEnable() {
         // Plugin startup logic
+        server.pluginManager.registerEvents(ExplosionListener(), this)
     }
 
     override fun onDisable() {
