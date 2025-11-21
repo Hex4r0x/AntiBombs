@@ -11,7 +11,7 @@
 
 - **Zero terrain damage**: All block‑breaking explosions are cancelled.
 - **Compatibility**: Works with Paper API `1.21.10‑R0.1` and should be compatible with any server running this version.
-- **Simple configuration**: No configuration files needed – the plugin works out of the box.
+- **Simple configuration**: Toggle protection on or off via `config.yml`.
 - **Lightweight**: Minimal performance impact; only a single event listener.
 
 ## Installation
@@ -38,9 +38,13 @@ The compiled JAR will be located at `build/libs/AntiBombs-<version>.jar`.
 
 ## Usage
 
-The plugin does not expose any commands or configuration options. Once installed, it will automatically cancel any explosion events that would affect blocks.
+The plugin creates a `config.yml` file in `plugins/AntiBombs/`. You can toggle the explosion protection feature by editing this file:
 
-If you need to temporarily disable the protection (e.g., for testing), you can unload the plugin with a plugin manager such as `/plugman unload AntiBombs` and reload it later.
+```yaml
+prevent-explosions: true # Set to false to allow explosions
+```
+
+After changing the configuration, restart the server for changes to take effect.
 
 ## License
 
