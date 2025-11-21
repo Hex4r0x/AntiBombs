@@ -5,15 +5,19 @@ import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockExplodeEvent
 import org.bukkit.event.entity.EntityExplodeEvent
 
-class ExplosionListener : Listener {
+class ExplosionListener(private val plugin: AntiBombs) : Listener {
 
     @EventHandler
     fun onEntityExplode(event: EntityExplodeEvent) {
-        event.blockList().clear()
+        if (plugin.config.getBoolean("prevent-explosions")) {
+            event.blockList().clear()
+        }
     }
 
     @EventHandler
     fun onBlockExplode(event: BlockExplodeEvent) {
-        event.blockList().clear()
+        if (plugin.config.getBoolean("prevent-explosions")) {
+            event.blockList().clear()
+        }
     }
 }
