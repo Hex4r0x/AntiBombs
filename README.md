@@ -9,17 +9,18 @@
 
 ## Features
 
-- **Zero terrain damage**: All block‑breaking explosions are cancelled.
-- **Compatibility**: Works with Paper API `1.21.10‑R0.1` and should be compatible with any server running this version.
-- **Simple configuration**: Toggle protection on or off via `config.yml`.
-- **Lightweight**: Minimal performance impact; only a single event listener.
+- **Zero terrain damage**: Prevent block damage from explosions.
+- **Fine-grained control**: Configure protection per entity type (Creeper, TNT, etc.) and block type (Respawn Anchor, Bed).
+- **Compatibility**: Works with Paper API `1.21.10‑R0.1`.
+- **Simple configuration**: Easy-to-read `config.yml` to toggle specific explosion sources.
+- **Lightweight**: Minimal performance impact.
 
 ## Installation
 
 1. Download the compiled `AntiBombs.jar` from the releases page (or build it yourself – see the _Building_ section).
 2. Place the JAR file into your server's `plugins/` directory.
 3. Restart or reload the server.
-4. The plugin will automatically start protecting terrain from explosions.
+4. The plugin will automatically generate the default configuration.
 
 ## Building from Source
 
@@ -38,13 +39,33 @@ The compiled JAR will be located at `build/libs/AntiBombs-<version>.jar`.
 
 ## Usage
 
-The plugin creates a `config.yml` file in `plugins/AntiBombs/`. You can toggle the explosion protection feature by editing this file:
+The plugin creates a `config.yml` file in `plugins/AntiBombs/`. You can configure which explosions are prevented by editing this file.
+
+**Default Configuration:**
 
 ```yaml
-prevent-explosions: true # Set to false to allow explosions
+# AntiBombs Configuration
+
+# Fine-grained control for explosions.
+# Set to 'true' to PREVENT the explosion (protect terrain).
+# Set to 'false' to ALLOW the explosion.
+
+explosions:
+  entities:
+    CREEPER: true
+    TNT: true
+    TNT_MINECART: true
+    FIREBALL: true
+    WITHER: true
+    WITHER_SKULL: true
+    DRAGON_FIREBALL: true
+    PRIMED_TNT: true
+  blocks:
+    RESPAWN_ANCHOR: true
+    BED: true
 ```
 
-After changing the configuration, restart the server for changes to take effect.
+After changing the configuration, restart the server or reload the plugin for changes to take effect.
 
 ## License
 

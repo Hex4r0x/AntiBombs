@@ -9,14 +9,16 @@ class ExplosionListener(private val plugin: AntiBombs) : Listener {
 
     @EventHandler
     fun onEntityExplode(event: EntityExplodeEvent) {
-        if (plugin.config.getBoolean("prevent-explosions")) {
+        val entityType = event.entityType.name
+        if (plugin.config.getBoolean("explosions.entities.$entityType", false)) {
             event.blockList().clear()
         }
     }
 
     @EventHandler
     fun onBlockExplode(event: BlockExplodeEvent) {
-        if (plugin.config.getBoolean("prevent-explosions")) {
+        val blockType = event.block.type.name
+        if (plugin.config.getBoolean("explosions.blocks.$blockType", false)) {
             event.blockList().clear()
         }
     }

@@ -2,4 +2,22 @@
 
 # Set to true to prevent explosions from destroying blocks.
 # Set to false to allow explosions to destroy blocks.
-prevent-explosions: true
+# AntiBombs Configuration
+
+# Fine-grained control for explosions.
+# Set to 'true' to PREVENT the explosion (protect terrain).
+# Set to 'false' to ALLOW the explosion.
+
+explosions:
+  entities:
+    CREEPER: true
+    TNT: true
+    TNT_MINECART: true
+    FIREBALL: true
+    WITHER: true
+    WITHER_SKULL: true
+    DRAGON_FIREBALL: true
+    PRIMED_TNT: true
+  blocks:
+    RESPAWN_ANCHOR: true
+    BED: true
